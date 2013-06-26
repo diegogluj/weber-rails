@@ -5,16 +5,14 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3'
+  gem 'therubyracer'
+end
 
-# Admin module
-gem 'activeadmin', github: "gregbell/active_admin"
-
-# Rest API module
-gem 'rabl'
-
-# Plugin for country select input
-gem 'country-select'
+group :production do
+  gem 'pg'
+end
 
 
 # Gems used only for assets and not required
@@ -30,6 +28,16 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+# Admin module
+gem 'activeadmin', github: "gregbell/active_admin"
+
+# Rest API module
+gem 'rabl'
+
+# Plugin for country select input
+gem 'country-select'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
